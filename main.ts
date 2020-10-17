@@ -3,7 +3,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (player3, enemy)
     info.changeLifeBy(-1)
 })
 let enemy: Sprite = null
-let player2 = sprites.create(img`
+let hero = sprites.create(img`
     . . . . . . f f f f . . . . . . 
     . . . . f f f 2 2 f f f . . . . 
     . . . f f f 2 2 2 2 f f f . . . 
@@ -21,7 +21,8 @@ let player2 = sprites.create(img`
     . . . f f f f f f f f . . . . . 
     . . . . . f f . . f f . . . . . 
     `, SpriteKind.Player)
-controller.moveSprite(player2)
+    scene.cameraFollowSprite(hero)
+controller.moveSprite(hero)
 tiles.setTilemap(tilemap`level`)
 // life
 info.setLife(3)
